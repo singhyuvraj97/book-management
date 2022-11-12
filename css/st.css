@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900;1000&display=swap');
+
+*{
+  margin: 0px;
+  padding: 0px;
+  /*border: 1px solid red;*/
+  box-sizing: border-box;
+}
+
+:root{
+  --base-font-family: 'Nunito', sans-serif;
+  --main-cont-border-width: 0.2rem;
+  --main-cont-border-color: green;
+  --main-cont-border-style: solid;
+  --title-font-weight: 1000;
+  --title-font-size: 2.8rem;
+  --label-font-weight: 800;
+  --label-font-size: 1.2rem;
+  --input-font-weight: 500;
+  --input-font-size: 1rem;
+}
+
+.mainCont{
+  width: 60%;
+  margin: 5% auto;
+  border: var(--main-cont-border-width) var(--main-cont-border-style) var(--main-cont-border-color);
+}
+
+.subCont{
+  margin: 5%;
+}
+
+.Box1 h1{
+  text-align: center;
+  font-family: var(--base-font-family);
+  font-weight: var(--title-font-weight);
+  font-size: var(--title-font-size);
+  margin-bottom: 2rem;
+}
+
+.inputMainCont{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.inputSubCont{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.inputSubCont div:nth-child(1){
+  font-family: var(--base-font-family);
+  font-weight: var(--label-font-weight);
+  font-size: var(--label-font-size);
+}
+
+.inputSubCont div:nth-child(2) input[type="text"]{
+  width: 100%;
+  padding: 4px 2px;
+  border: none;
+  border-bottom: 2px solid grey;
+  font-family: var(--base-font-family);
+  font-weight: var(--input-font-weight);
+  font-size: var(--input-font-size);
+}
+
+input[type="submit"]{
+  border: none;
+  padding: 0.2rem 0.8rem;
+  font-family: var(--base-font-family);
+  font-weight: var(--label-font-weight);
+  font-size: var(--label-font-size);
+  background-color: black;
+  color: whitesmoke;
+  border-radius: 6%;
+}
