@@ -12,3 +12,23 @@ th{
   font-size: var(--label-font-size);
   font-weight: var(--label-font-weight);
 }
+
+.errorAlertMsg{
+  color: white;
+  font-family: var(--base-font-family);
+  font-size: var(--label-font-size);
+  font-weight: var(--label-font-weight);
+  list-style: none;
+  background-color: crimson;
+  padding: 10px 20px;
+}
+
+.successAlertMsg{
+  color: white;
+  font-family: var(--base-font-family);
+  font-size: var(--label-font-size);
+  font-weight: var(--label-font-weight);
+  list-style: none;
+  background-color: green;
+  padding: 10px 20px;
+}

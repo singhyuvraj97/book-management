@@ -16,16 +16,45 @@ UI.prototype.addBook = function(book){
   <td>${book.author}</td>
   <td>${book.isbn}</td>
   `;
-  tableBody.appendChild(tableRow);
+  console.log(tableBody.appendChild(tableRow));
+  let alertList = document.createElement("li");
+  alertList.appendChild(document.createTextNode("Record Added !!"));
+
+  listCont = document.getElementsByClassName("inputMainCont")[0];
+
+  alertList.classList.add("successAlertMsg");
+
+  listCont.appendChild(alertList);
+
+  setTimeout(function(){
+    alertList.remove();
+  },3000);
 }
 
 UI.prototype.clearInputs = function(book){
   let formInputs = document.querySelectorAll("input[type='text']");
-  console.log(formInputs);
+  // console.log(formInputs);
   formInputs.forEach(function(ele){
-    console.log(ele);
+    // console.log(ele);
     ele.value = "";
   })
+}
+
+UI.prototype.errorAlertMsg = function(e){
+  let alertList = document.createElement("li");
+  alertList.appendChild(document.createTextNode("empty inputs !!"));
+
+  listCont = e.target.parentElement.parentElement.parentElement;
+
+  alertList.classList.add("errorAlertMsg");
+
+  listCont.appendChild(alertList);
+
+  console.log(listCont.lastElementChild);
+
+  setTimeout(function(){
+    alertList.remove();
+  },3000);
 }
 
 
@@ -42,21 +71,24 @@ function handleData(e){
   let bookIsbn = document.getElementById("bookIsbn");
 
 
-  console.log(`title of the book is ${bookTitle.value}`);
-  console.log(`author of the book is ${bookAuthor.value}`);
-  console.log(`isbn of the book is #${bookIsbn.value}`);
+  // console.log(`title of the book is ${bookTitle.value}`);
+  // console.log(`author of the book is ${bookAuthor.value}`);
+  // console.log(`isbn of the book is #${bookIsbn.value}`);
 
   let title = bookTitle.value;
   let author = bookAuthor.value;
   let isbn = bookIsbn.value;
 
-  let book1 = new Book(title,author,isbn);
-
-  console.log(book1);
-
   let ui = new UI();
-  ui.addBook(book1);
-  ui.clearInputs();
+
+  if(title === "" || author === "" || isbn === ""){
+    ui.errorAlertMsg(e);
+  }
+  else{
+    let book1 = new Book(title,author,isbn);
+    ui.addBook(book1);
+    ui.clearInputs();
+  }
 
   e.preventDefault();
 }
